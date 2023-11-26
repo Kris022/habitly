@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600&display=swap");
+
+:root {
+  --bg-color: #1f2024;
+  --card-bg-color: #313237;
+  --dark-highlight: #242529;
+
+  --text-primary: #e8e9ed;
+  --text-secondary: #95969b;
+
+  --dark-blue: #0064af;
+  --blue: #018ffd;
+  --light-blue: #00c0fe;
+  --light-red: #ec0238;
+  --dark-red: #ec0238;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: "Gabarito", sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+.calendar-top {
+  display: flex;
+  padding: 15px;
+  gap: 20px;
+}
+
+.calendar-bottom {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  overflow-x: scroll;
+}
+
+.calendar-day {
+  width: 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--text-secondary);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.calendar-day h3 {
+  font-size: 1.75rem;
+}
+
+.calendar-day.active {
+  border-color: var(--dark-red);
+  color: var(--dark-red);
+}
