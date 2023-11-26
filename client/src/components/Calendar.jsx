@@ -1,37 +1,72 @@
 import { useEffect, useState } from "react";
+import CalendarCard from "./CalendarCard";
 
 const Calendar = () => {
-  const [currentYear, setCurrentYear] = useState(null);
-  const [currentMonth, setCurrentMonth] = useState(null);
-  const [daysInMonth, setDaysInMonth] = useState(null);
+  const [currentDates, setCurrentDates] = useState([]);
+
+  //   Need an array of date objects that looks like this
+  const days = [{ day: 1, abv: "Mon" }];
+
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+  };
+
+  const getTomorrow = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    return tomorrow;
+  };
+
+  const getPreviousDates = (startDate, numDays = 4) => {
+    const previousDates = [];
+
+    for (let i = 0; i < numDays; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() - (i + 1));
+
+      previousDates.push({
+        fullDate: currentDate.toDateString(),
+        dayAbbreviation: currentDate.toString().split(" ")[0],
+        day: currentDate.toString().split(" ")[2],
+      });
+    }
+
+    // Use a for loop that decrements instead
+    return previousDates.reverse();
+  };
+
+  const getNextDates = (startDate, numDays = 4) => {
+    return;
+  };
 
   useEffect(() => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const days = new Date(year, month, 0).getDate();
-
-    setCurrentYear(year);
-    setCurrentMonth(month);
+    const tomorrow = getTomorrow();
+    const dates = getPreviousDates(tomorrow);
+    setCurrentDates(dates);
   }, []);
 
   return (
     <div className="calendar-container">
       <div className="calendar-top">
-        <h2>{currentYear}</h2>
-        <h2>{currentMonth}</h2>
+        <h2>2023/11/11</h2>
+        {/* <h2>Nov</h2> */}
       </div>
       <div className="calendar-bottom">
-      
+        <div>{"<-"}</div>
+        <div className="days-container">
+          {currentDates.map((date, index) => (
+            <CalendarCard
+              key={index}
+              dayAbv={date.dayAbbreviation}
+              day={date.day}
+            />
+          ))}
 
-        <div className="calendar-day">
-          <p>Sun</p>
-          <h3>10</h3>
+          {/* <CalendarCard dayAbv={"Mon"} day={11} active={true} /> */}
         </div>
-        <div className="calendar-day active">
-          <p>Mon</p>
-          <h3>11</h3>
-        </div>
+        <div>{"->"}</div>
       </div>
     </div>
   );

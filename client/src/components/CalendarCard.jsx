@@ -1,8 +1,8 @@
-const CalendarCard = ({dayAbv, day}) => {
+const CalendarCard = ({ dayAbv, day, active=false }) => {
   return (
-    <div className="calendar-day">
-      <p>Sun</p>
-      <h3>10</h3>
+    <div className={`calendar-day ${active && "active"}`}>
+      <p>{dayAbv}</p>
+      <h3>{day}</h3>
     </div>
   );
 };
