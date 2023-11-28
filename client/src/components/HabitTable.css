@@ -1,0 +1,47 @@
+.grid-container {
+  resize: both;
+  overflow: auto;
+  display: grid;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid grey;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.habit-table {
+  /* border: 1px solid #535bf2; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.habit-card {
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.habit-card .checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid gray;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.habit-card .checkbox.active {
+  border-color: lightgoldenrodyellow;
+  background-color: rgb(255, 0, 81);
+}
