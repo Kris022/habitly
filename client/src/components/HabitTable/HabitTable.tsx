@@ -1,9 +1,23 @@
 import "./HabitTable.css";
 import HabitCard from "./HabitCard";
 
+interface HabitObject {
+  name: string;
+  complete: boolean;
+}
+
+interface HabitCardProps {
+  habit: HabitObject;
+}
+
 const habits = [
   { name: "🏋️ Gym", complete: false },
   { name: "📖 Morning Read", complete: true },
+  { name: "⏰ Coding Challenge", complete: true },
+  { name: "⏰ Coding Challenge", complete: true },
+  { name: "⏰ Coding Challenge", complete: true },
+  { name: "⏰ Coding Challenge", complete: true },
+  { name: "⏰ Coding Challenge", complete: true },
   { name: "⏰ Coding Challenge", complete: true },
   { name: "📅 Behavioural Interview prep", complete: false },
 ];

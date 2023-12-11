@@ -1,0 +1,22 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    max-width: 500px;
+    flex: 1;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+}
+
+td {
+    text-align: center;
+}

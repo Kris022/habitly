@@ -1,0 +1,18 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 1px solid snow;
+}
+
+.navbar > div {
+  /* border: 1px solid white; */
+  padding: 20px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
